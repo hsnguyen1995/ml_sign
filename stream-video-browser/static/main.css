@@ -1,0 +1,120 @@
+
+h3{
+    color:#0000EE ;
+    font-family: 'Courier New', Courier;
+}
+
+.center-div
+{
+     margin: 0 auto;
+     width: 100px; 
+}
+
+h1 {
+    /* display: block; */
+    font-size: 3em;
+    color: rgb(26, 26, 26);
+    margin-top: 0em;
+    margin-bottom: 0em;
+    margin-left: 0.5em;
+    margin-right: 0em;
+    font-weight: bold;
+    font-family: 'Courier New', Courier
+
+  }
+
+button{
+    background-color: white; 
+    border: none;
+    color:black;
+    width: 100%;
+    text-align: center;
+}
+button:hover {
+    color: darkred;
+  }
+button:active {
+    color: rgb(71, 0, 0);
+  }
+img.video{
+    width:100%;
+}
+
+.vr {
+    width:4px;
+    background-color:#000;
+    position:absolute;
+    top:8;
+    bottom:10;
+    left:0;
+}
+
+div.big_letter{
+    /* font-size: 5em; */
+    font-family: 'Courier New', Courier
+}
+
+.title{
+    padding-right: 20em;
+}
+
+.nav-item{
+   
+    padding: 10px;
+    font-size: 1.8em;
+    font-family: 'Courier New', Courier, monospace
+
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+  }
+.navbar{
+    background-color: rgb(158, 158, 158);
+
+}
+
+a.navbar-brand {
+    padding-left: 0px; 
+    padding-top: 0px; 
+    margin-left: 0px;
+    text-align: left;
+  } 
+
+  
+.table {
+    display: table;  
+    text-align: center;
+    vertical-align: middle;
+    margin-bottom: 0px;
+    margin-top: 25px;
+    font-size: 1.1em;
+
+}
+
+ul#horizontal-list {
+	list-style: none;
+    padding: 0px;	
+}
+ul#horizontal-list li {
+    display: inline;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: rgb(128, 128, 128);
+}
+
+.page-footer{
+    background-color: rgb(235, 235, 235);
+    font-family: 'Courier New', Courier
+}
+.footer-copyright{
+    background-color: rgb(44, 44, 44);
+    color: rgb(190, 190, 190);
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: 'Courier New', Courier
+}
+

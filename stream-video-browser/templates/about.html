@@ -1,0 +1,278 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="../static/main.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Machine Learning ASL</title>
+  </head>
+  <body>
+    <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark static-top">
+    <div class="container">
+      <div class="col-md-3 title">
+          <div class="vr">&nbsp;</div>
+      <h1> <b>Machine Learning</b></h1>
+      </div>
+      <a class="navbar-brand" href="#">
+            <img src="../static/images/ASL_Navbar_Logo.png" alt="" width=45%>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav">
+          <li class="nav-item ">
+            <a class="nav-link" href="{{ url_for('index') }}">Home
+                </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link active" href="{{ url_for('about') }}">About</a>
+              <span class="sr-only">(current)</span>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('more') }}">More</a>
+            </li>
+   
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <br>  <br>
+  <div class="container">
+    <br>
+    <h3><b>American Sign Language Translation with Machine Learning:</b> </h3>
+  
+    <div class="row">
+    <div class="col-md-6"></div>
+    <div class="col-md-5">
+      <h6><i>- Huy Nguyen, Joseph Mangahas, Steven Ortiz, Tyler Jones and William Harris </i></h6>
+    </div>
+    <div class ="col-md-1" >
+      </div>
+  </div>
+  <br>
+  <div class="row">
+      <div class="col-md-3">
+      </div>
+      <div class="col-md-6">
+          <img src="../static/images/ML_Example.png" alt="" width=100%>
+      </div>
+      <div class="col-md-3">
+      </div>
+      </div>
+  
+  <p>Our group is driven to create image processing software that could determine what hand gesture is being used for sign language. The main components of our project are powered by Tensorflow, CV2 (Computer Vision) and Flask. We use a training set found at the folloing link.  </p>
+
+  <br>
+
+
+<center><a href="https://www.kaggle.com/grassknoted/asl-alphabet#D_test.jpg"> https://www.kaggle.com/grassknoted/asl-alphabet#D_test.jpg</a></center>
+
+<br>
+
+<div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6">
+        <img src="../static/images/training_set.png" alt="" width=100% >
+    </div>
+    <div class="col-md-3">
+    </div>
+    </div>
+    
+
+  <br> <br> <br> <br> <br> <br> 
+  <h3><b>Overview of the code: </b></h3>
+
+    <hr>
+    <br>
+    
+      <h2>OpenCV</h2>
+    <div class="row">
+    <div class="col-md-9">
+       
+        
+        
+        <xmp> 
+frame = vs.read() 
+frame = imutils.resize(frame, width=400)
+        </xmp>
+        
+       
+    </div>
+    <div class="col-md-3">
+        <img src="../static/images/opencv_logo.png" alt="" width=70%>
+    </div>
+    </div>
+    <br>
+    <h2>HTML</h2>
+    <div class="row">
+        <div class="col-md-9">
+
+            <div class="center-div" style="width:850px;">
+                <xmp>
+<form action="/forward/" method="post">
+    <button name="forwardBtn" type="submit">
+        <img src="{{ url_for('video_feed') }}"  class=" video">
+    </button>
+</form>
+                </xmp>
+            </div>
+
+      
+  </div>
+  <div class="col-md-3">
+      <img src="../static/images/html_logo.png" alt="" width=60%>
+  </div>
+</div>
+
+<br>
+<h2>Tensorflow</h2>
+
+<div class="row">
+    <div class="col-md-9">
+
+        
+            <xmp>
+model = Sequential()
+                ​
+model.add(Conv2D(16, (3,3), activation="relu", \
+         padding="same", input_shape = training_data_norm.shape[1:]))
+model.add(Conv2D(32, (3,3), activation="relu", padding="same"))
+model.add(MaxPooling2D(pool_size=(2,2)))
+                ​
+model.add(Conv2D(32, (3,3), activation="relu", padding="same"))
+model.add(Conv2D(64, (3,3), activation="relu", padding="same"))
+model.add(MaxPooling2D(pool_size=(2,2)))
+                          
+model.add(Conv2D(128, (3,3), activation="relu", padding="same"))
+model.add(Conv2D(256, (3,3), activation="relu", padding="same"))
+model.add(MaxPooling2D(pool_size=(2,2)))
+                          
+model.add(BatchNormalization())
+model.add(Flatten())
+                ​
+model.add(Dropout(0.5))
+model.add(Dense(512, activation='relu', kernel_regularizer=regularizers.l2(0.001)))
+model.add(Dense(26, activation="softmax"))
+                          
+model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=['accuracy'])
+                ​
+model.fit(training_data_norm, labels_categ, batch_size=64, epochs=15, validation_split=0.1)
+                    
+                
+            </xmp>
+      
+
+  
+</div>
+<div class="col-md-3">
+  <img src="../static/images/tensorflow_logo.png" alt="" width=90%>
+</div>
+</div>
+
+
+
+
+
+
+
+    <h2>Flask</h2>
+    <div class="row">
+        <div class="col-md-9">
+    <xmp>
+@app.route("/forward/", methods=['POST'])
+def move_forward():
+      
+    
+    cv2.imwrite(filename='data/saved_img.jpg', img=outputFrame)
+    model = load_model("cnn_sign.h5")
+  
+    test_data_dir = "data/"
+  
+    def load_testing_data():
+      .
+      .
+      .
+      
+  
+    testing_data_norm, labels_categ = load_testing_data()
+  
+    predictions = [model.predict_classes(image.reshape(1,64,64,3))[0] for image in testing_data_norm]
+    list=["A", "B", "C", ... "X", "Y", "Z"]
+    print(list[predictions[0]])
+    forward_message = list[predictions[0]]
+    return render_template('index.html', forward_message=forward_message)
+    </xmp>
+    
+
+
+
+
+
+
+
+
+
+
+  </div>
+  <div class="col-md-3">
+    <img src="../static/images/flask_logo.png" alt="" width=100%>
+  </div>
+</div>
+
+   
+
+    
+  
+ <br>
+</div>
+
+  
+
+    <!-- Footer -->
+<footer class="page-footer">
+
+    <!-- Footer Elements -->
+    <div class="container">
+  
+      <!-- Grid row-->
+      <div class="row">
+  
+        <!-- Grid column -->
+        <div class="col-md-12 py-1 namelist">
+          
+
+            <div class="table">
+              <ul id="horizontal-list">
+                  <li>Huy Nguyen</li>
+                  <li>|</li>
+                  <li>Joseph Mangahas</li>
+                  <li>|</li>
+                  <li>Steven Ortiz</li>
+                  <li>|</li>
+                  <li>Tyler Jones</li>
+                  <li>|</li>
+                  <li>William Harris</li>
+              </ul>
+            </div>
+           
+          
+        </div>
+        <!-- Grid column -->
+  
+      </div>
+      <!-- Grid row-->
+  
+    </div>
+    <!-- Footer Elements -->
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-2">UCI Data Analytics Boot Camp
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+  </body>
+</html>
